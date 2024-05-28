@@ -45,15 +45,15 @@ To prevent leakage and ensure equal classification of all genres, the train-test
 - Chose PCA over t-SNE for maintaining global structure and variance.
 - PCA is computationally inexpensive and efficient for our dataset (~50,000 entries).
 
-![t-SNE 2D reduction](image1.png)
-![PCA 2D reduction](image2.png)
+![t-SNE 2D reduction](images/image1.png)
+![PCA 2D reduction](images/image2.png)
 
 ### Clustering
 
 Using domain knowledge, we expected 10 clusters corresponding to the genres: `Electronic`, `Anime`, `Jazz`, `Alternative`, `Country`, `Rap`, `Blues`, `Rock`, `Classical`, and `Hip-Hop`. We used k-means clustering because the clusters were not expected to be of obscure shapes.
 
-![K-means clustering on PCA 2D](image3.png)
-![Variance Explained Plot](image5.png)
+![K-means clustering on PCA 2D](images/image3.png)
+![Variance Explained Plot](images/image5.png)
 
 We aimed to account for 90% of the variance, which indicated using 9 principal components.
 
@@ -72,11 +72,10 @@ Using an XGBoost classifier, we performed classification using all numerical pre
 - The model's AUROC was `0.9208755066666667`, indicating strong performance.
 - Using only 2 principal components resulted in an AUROC of ~0.80, demonstrating the importance of selecting the optimal number of components.
 
-![ROC Curve](image4.png)
+![ROC Curve](images/image4.png)
 
 The ROC curve confirms that our model significantly outperforms random guessing (AUROC = 0.5).
 
 ## Conclusion
 
 The critical factor for the model's success was selecting the number of principal components. Using more principal components (up to 9) ensured capturing a significant portion of the variance and avoided underfitting.
-
